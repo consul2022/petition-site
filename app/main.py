@@ -1,8 +1,10 @@
 import uvicorn
 from fastapi import FastAPI
 
-from database import Base
-from database import engine
+from app.api.routers.auth import auth_router
+from app.api.routers.petitions import petitions_router
+from app.api.routers.votes import votes_router
+from app.db.database import Base, engine
 
 
 # Асинхронная функция для создания таблиц
@@ -41,7 +43,9 @@ app = FastAPI(
 async def on_startup():
     await create_tables()
 
-
+app.include_router(auth_router)
+app.include_router(petitions_router)
+app.include_router(votes_router)
 # Запуск сервера
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=80)
