@@ -5,3 +5,4 @@ asyncpg
 pydantic
 passlib
 python-jose
+python-dotenv
