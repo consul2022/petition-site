@@ -1,9 +1,10 @@
 from datetime import datetime
 
-from db.database import Base
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import relationship
+
+from app.db.database import Base
 
 
 class User(Base):

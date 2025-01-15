@@ -46,6 +46,7 @@ async def on_startup():
 app.include_router(auth_router)
 app.include_router(petitions_router)
 app.include_router(votes_router)
+
 # Запуск сервера
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=80)
